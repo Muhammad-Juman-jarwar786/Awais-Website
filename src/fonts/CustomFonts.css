@@ -1,0 +1,7 @@
+@font-face {
+  font-family: 'Roboto Slab';
+  font-weight: 1 999;
+  font-display: swap;
+  src: url('../fonts/RobotoSlab-VariableFont_wght.ttf')
+    format('truetype-variations');
+}
