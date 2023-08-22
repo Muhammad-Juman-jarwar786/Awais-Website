@@ -16,6 +16,10 @@ const BlogShowCase = () => {
 
   const handlePageChange = (page: any) => {
     setCurrentPage(page);
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
   };
   const totalPages: number = Math.ceil(BlogData.length / productsPerPage);
 
@@ -24,6 +28,10 @@ const BlogShowCase = () => {
       if (currentPage < totalPages) {
         setCurrentPage(currentPage + 1);
       }
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      });
     };
 
     return (

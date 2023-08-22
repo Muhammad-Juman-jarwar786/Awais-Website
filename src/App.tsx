@@ -75,8 +75,6 @@ function App() {
             </RouteTransition>
           }
         />
-        <Route path="/login" element={<Login />} />
-        <Route path="/addproduct" element={<AddProduct />} />
         <Route
           path="/singleproduct/:pid"
           element={
@@ -85,6 +83,9 @@ function App() {
             </RouteTransition>
           }
         />
+
+        <Route path="/login" element={<Login />} />
+        <Route path="/addproduct" element={<AddProduct />} />
       </Routes>
 
       <Footer />

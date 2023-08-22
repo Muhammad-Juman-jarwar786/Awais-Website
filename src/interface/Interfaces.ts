@@ -46,3 +46,14 @@ export interface shippingFormik {
   city: string;
   state: string;
 }
+
+export interface AddProductProps {
+  img: string;
+  img1: string;
+  img2: string;
+  img3: string;
+  title: string;
+  category: string;
+  description: string;
+  price: number;
+}

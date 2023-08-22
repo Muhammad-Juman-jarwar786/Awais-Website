@@ -1,9 +1,36 @@
 import FeaturedProductsCard from '../productCard/FeaturedProductsCard';
-import { ProductsData } from '../../data/ProductsData';
-// import { useEffect } from 'react';
+// import { ProductsData } from '../../data/ProductsData';
+import { useEffect, useState } from 'react';
 
 const FeaturedProducts = () => {
   const productsToShow: number = 8;
+  const [products, setProducts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    fetchProducts();
+  }, []);
+
+  const fetchProducts = () => {
+    const firebaseEndpoint =
+      'https://awais-website-df858-default-rtdb.firebaseio.com/products.json';
+
+    fetch(firebaseEndpoint)
+      .then((response) => response.json())
+      .then((data) => {
+        if (data) {
+          const productsArray: any = Object.values(data);
+          setProducts(productsArray);
+        }
+      })
+      .catch((error) => {
+        setTimeout(() => {
+          alert(`Could not Found any products: ${error}`);
+        }, 3000);
+        setIsLoading(true);
+      });
+    setIsLoading(false);
+  };
 
   return (
     <>
@@ -27,20 +54,26 @@ const FeaturedProducts = () => {
             Summer Collection New Modern Design
           </div>
         </div>
-        <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 sm:gap-2 md:gap-3 lg:gap-4 mx-auto ">
-          {ProductsData.slice(0, productsToShow).map((product) => (
-            <FeaturedProductsCard
-              key={product.id}
-              id={product.id}
-              img={product.img}
-              alt={product.alt}
-              category={product.category}
-              title={product.title}
-              price={product.price}
-              animation={product.animation}
-            />
-          ))}
-        </div>
+        {isLoading ? (
+          <div className="text-center">
+            <i className="fa-solid fa-spinner fa-spin-pulse text-5xl font-bold mt-10 "></i>
+          </div>
+        ) : (
+          <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 sm:gap-2 md:gap-3 lg:gap-4 mx-auto ">
+            {products.slice(0, productsToShow).map((product: any) => (
+              <FeaturedProductsCard
+                key={product.id}
+                id={product.id}
+                img={product.img}
+                alt={product.title}
+                category={product.category}
+                title={product.title}
+                price={product.price}
+                // animation={product.animation}
+              />
+            ))}
+          </div>
+        )}
       </div>
     </>
   );

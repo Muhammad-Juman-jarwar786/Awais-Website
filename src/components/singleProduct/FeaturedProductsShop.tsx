@@ -1,12 +1,36 @@
 import FeaturedProductsCard from '../productCard/FeaturedProductsCard';
-import { ProductsData } from '../../data/ProductsData';
+// import { ProductsData } from '../../data/ProductsData';
+import { useEffect, useState } from 'react';
 
 const FeaturedProductsShop = () => {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    fetchProducts();
+  }, []);
+
+  const fetchProducts = () => {
+    const firebaseEndpoint =
+      'https://awais-website-df858-default-rtdb.firebaseio.com/products.json';
+
+    fetch(firebaseEndpoint)
+      .then((response) => response.json())
+      .then((data) => {
+        if (data) {
+          const productsArray: any = Object.values(data);
+          setProducts(productsArray);
+        }
+      })
+      .catch((error) => {
+        console.error('Error fetching products:', error);
+      });
+  };
+
   const productsToShow: number = 4;
   const startIndexToShow: number = 4;
 
   const getProductsToDisplay = (startIndex: number, numProducts: number) => {
-    return ProductsData.slice(startIndex, startIndex + numProducts);
+    return products.slice(startIndex, startIndex + numProducts);
   };
 
   const productsToDisplay = getProductsToDisplay(
@@ -26,7 +50,7 @@ const FeaturedProductsShop = () => {
           </div>
         </div>
         <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 sm:gap-2 md:gap-3 lg:gap-4 mx-auto">
-          {productsToDisplay.map((product) => (
+          {productsToDisplay.map((product: any) => (
             <FeaturedProductsCard
               key={product.id}
               id={product.id}
