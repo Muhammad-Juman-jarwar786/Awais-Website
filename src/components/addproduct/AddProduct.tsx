@@ -57,7 +57,7 @@ const AddProduct: React.FC = () => {
   };
 
   return (
-    <div className="grid grid-cols-1 xl:grid-cols-2">
+    <div className="grid grid-cols-1 xl:grid-cols-2 pt-20">
       <div className="w-[90vw] md:w-[60vw] xl:w-[40vw] mx-auto p-8 border rounded shadow mt-40">
         <h1 className="text-2xl font-semibold mb-4">Add Product</h1>
         <form onSubmit={handleSubmit} className="space-y-4">

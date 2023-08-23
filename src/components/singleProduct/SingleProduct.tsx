@@ -65,6 +65,7 @@ const SingleProduct = () => {
           <div className="ml-20 mr-20 lg:mr-40 lg:w-[120vw] xl:w-[100vw]">
             <div className="w-full md:w-[45vw] 2xl:w-[35vw]">
               <img
+                loading="lazy"
                 className="w-full h-auto object-cover"
                 src={mainImage}
                 alt=""
