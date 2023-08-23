@@ -32,7 +32,7 @@ const FeaturedProductsCard = (props: any) => {
           <Link to={`/singleproduct/${props.id}`}>
             <img
               onClick={SingleProduct}
-              className="rounded-3xl w-full object-cover"
+              className="rounded-3xl w-full object-cover h-96 sm:h-72 md:h-52 lg:h-36 xl:h-96"
               src={props.img}
               alt={props.alt}
             />

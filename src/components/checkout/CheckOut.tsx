@@ -1,18 +1,18 @@
-// import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { useAppSelector } from '../../hooks/ReduxToolkitHooks';
+import { Link, useNavigate } from 'react-router-dom';
+import { useAppDispatch, useAppSelector } from '../../hooks/ReduxToolkitHooks';
 import { Button } from '../buttons/Buttons';
 import CheckOutProducts from './CheckOutProducts';
 import { useFormik } from 'formik';
 import { shippingFormik } from '../../interface/Interfaces';
 import { ShippingFormValidation } from '../../validation/ShippingFormValidation';
-// import emailjs from 'emailjs-com';
+import { clearCart } from '../../Slice/CartProductsSlice';
 
 const CheckOut = () => {
   const cart = useAppSelector((state) => state.addToCart.products);
-  //   const emailJsServiceId = 'service_z3vt49a';
-  //   const emailJsTemplateId = 'template_x86397c';
-  //   const emailJsUserId = 'F8jMeqOuNtsgB3-d_';
+
+  const navigate = useNavigate();
+
+  const dispatch = useAppDispatch();
 
   const uniqueProducts: any = {};
 
@@ -71,53 +71,13 @@ const CheckOut = () => {
         if (isConfirmed) {
           formik.resetForm();
           console.log(values, uniqueProductsArray);
+          alert('You have Successfully placed order');
+          alert('you will receive your order with in 7 days');
+          dispatch(clearCart());
+          navigate('/');
         }
       }
     },
-    // onSubmit: async (values) => {
-    //   if (uniqueProductsArray.length === 0) {
-    //     alert('You have no products in the cart. Please add some products.');
-    //   } else {
-    //     const isConfirmed = window.confirm(
-    //       'Are you sure you want to place the order?'
-    //     );
-    //     if (isConfirmed) {
-    //       // Call EmailJS send function
-    //       try {
-    //         const emailParams = {
-    //           email: values.email,
-    //           phone: values.phone,
-    //           firstName: values.firstName,
-    //           lastName: values.lastName,
-    //           address: values.address,
-    //           appartment: values.appartment,
-    //           city: values.city,
-    //           state: values.state,
-    //           products: uniqueProductsArray,
-    //           subTotal: subTotal,
-    //           shipping: Shipping,
-    //           total: Total,
-    //         };
-
-    //         const response = await emailjs.send(
-    //           emailJsServiceId,
-    //           emailJsTemplateId,
-    //           emailParams,
-    //           emailJsUserId
-    //         );
-
-    //         if (response.status === 200) {
-    //           formik.resetForm();
-    //           console.log('Email sent successfully:', response);
-    //         } else {
-    //           console.error('Failed to send email:', response);
-    //         }
-    //       } catch (error) {
-    //         console.error('Error sending email:', error);
-    //       }
-    //     }
-    //   }
-    // },
   });
 
   const borderColorEmail =

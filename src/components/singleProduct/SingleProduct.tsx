@@ -65,7 +65,7 @@ const SingleProduct = () => {
           <div className="ml-20 mr-20 lg:mr-40 lg:w-[120vw] xl:w-[100vw]">
             <div className="w-full md:w-[45vw] 2xl:w-[35vw]">
               <img
-                className="w-full h-auto object-cover"
+                className="w-full h-96 xl:h-[30rem] object-cover"
                 loading="lazy"
                 src={mainImage}
                 alt=""
@@ -76,7 +76,7 @@ const SingleProduct = () => {
                 {secondaryImages.map((image, index) => (
                   <div className="cursor-pointer" key={index}>
                     <img
-                      className="w-40 2xl:w-56"
+                      className="w-40 2xl:w-56 object-cover h-28 xl:h-40"
                       loading="lazy"
                       src={image}
                       alt={`Secondary Image ${index + 1}`}

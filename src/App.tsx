@@ -15,6 +15,16 @@ import Login from './pages/Login';
 import AddProduct from './components/addproduct/AddProduct';
 
 function App() {
+  const handleButtonClick = () => {
+    const phoneNumber = '03123883304'; // Replace with your WhatsApp number
+
+    // Construct the WhatsApp chat URL
+    const url = `https://wa.me/${phoneNumber}`;
+
+    // Redirect the user to the WhatsApp chat
+    window.location.href = url;
+  };
+
   return (
     <>
       <Navbar />
@@ -87,7 +97,12 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/addproduct" element={<AddProduct />} />
       </Routes>
-
+      <div className="bg-white rounded-full fixed right-10 bottom-10 duration-1000 transition-all animate-bounce w-12 h-12">
+        <i
+          onClick={handleButtonClick}
+          className="fa-brands fa-whatsapp  text-5xl xl:text-6xl font-extrabold  text-green-600 cursor-pointer relative bottom-[0.4rem] right-[0.1rem]"
+        ></i>
+      </div>
       <Footer />
     </>
   );
