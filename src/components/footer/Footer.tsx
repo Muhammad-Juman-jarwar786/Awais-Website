@@ -61,9 +61,6 @@ const Footer = () => {
         <div className="text-center tracking-wider mt-10 font-bold md:text-left md:mt-40">
           <div className="text-xl md:text-2xl">About</div>
           <ul className="text-slate-500 mt-4 text-center md:text-left ">
-            <Link to="/login">
-              <li className="my-1">Login</li>
-            </Link>
             <li className="my-1">About Us</li>
             <li className="my-1">Delivery information</li>
             <li className="my-1">Privacy Policy</li>
@@ -74,7 +71,9 @@ const Footer = () => {
         <div className="hidden lg:block text-center tracking-wider mt-40 font-bold">
           <div className="text-xl md:text-2xl md:text-left">My Account</div>
           <ul className="text-slate-500 mt-4 text-center md:text-left ">
-            <li className="my-1">Sign In</li>
+            <Link to="/login">
+              <li className="my-1">Sign In</li>
+            </Link>
             <li className="my-1">View Cart</li>
             <li className="my-1">My Wallet</li>
             <li className="my-1">Track My Order</li>
@@ -110,7 +109,9 @@ const Footer = () => {
         <div className="lg:hidden text-center tracking-wider mt-10 font-bold">
           <div className="text-xl md:text-2xl md:text-left">My Account</div>
           <ul className="text-slate-500 mt-4 text-center md:text-left ">
-            <li className="my-1">Sign In</li>
+            <Link to="/login">
+              <li className="my-1">Sign In</li>
+            </Link>
             <li className="my-1">View Cart</li>
             <li className="my-1">My Wallet</li>
             <li className="my-1">Track My Order</li>

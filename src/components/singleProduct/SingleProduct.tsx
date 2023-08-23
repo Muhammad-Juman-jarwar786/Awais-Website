@@ -42,7 +42,6 @@ const SingleProduct = () => {
   const handleSecondaryImage = (image: string) => {
     setMainImage(image);
   };
-
   const setData = () => {
     const data = products.find((p: any) => p.id === pid);
     setproductstoshow(data);
