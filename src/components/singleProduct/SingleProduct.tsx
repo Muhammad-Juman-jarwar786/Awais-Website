@@ -65,8 +65,8 @@ const SingleProduct = () => {
           <div className="ml-20 mr-20 lg:mr-40 lg:w-[120vw] xl:w-[100vw]">
             <div className="w-full md:w-[45vw] 2xl:w-[35vw]">
               <img
-                loading="lazy"
                 className="w-full h-auto object-cover"
+                loading="lazy"
                 src={mainImage}
                 alt=""
               />
@@ -76,8 +76,8 @@ const SingleProduct = () => {
                 {secondaryImages.map((image, index) => (
                   <div className="cursor-pointer" key={index}>
                     <img
+                      className="w-40 2xl:w-56"
                       loading="lazy"
-                      className="w-40"
                       src={image}
                       alt={`Secondary Image ${index + 1}`}
                       onClick={() => handleSecondaryImage(image)}
@@ -94,10 +94,13 @@ const SingleProduct = () => {
             <div className="text-black text-2xl mt-2 lg:text-4xl">
               {productstoshow.title}
             </div>
+            <div className="text-slate-500 text-md lg:text-xl mt-2">
+              {productstoshow.category}
+            </div>
             <div className="text-slate-700 text-lg mt-2 lg:text-2xl">
               {productstoshow.price}
             </div>
-            <select
+            {/* <select
               className="text-slate-700 text-lg border-2 outline-none border-slate-400 mt-2 p-1 bg-transparent lg:p-2 lg:text-xl lg:mt-5"
               name="Select-size"
               id=""
@@ -108,8 +111,8 @@ const SingleProduct = () => {
               <option value="lg">Large</option>
               <option value="xl">XL</option>
               <option value="2xl">2XL</option>
-            </select>
-            <div className="mt-2 lg:mt-5">
+            </select> */}
+            <div className="mt-2 lg:mt-10">
               {/* <input
                 className="w-14 lg:w-20 lg:text-xl h-full p-2 lg:p-3 border-2 text-lg border-slate-400 text-center outline-none"
                 type="number"
@@ -123,7 +126,7 @@ const SingleProduct = () => {
                 Add To Cart
               </Button>
             </div>
-            <div className="text-black text-2xl mt-4 lg:text-3xl">
+            <div className="text-black text-2xl mt-10 lg:text-3xl">
               Product Details
             </div>
             <p className="mt-2 text-sm md:text-lg lg:text-xl  text-justify ml-6 mr-6 lg:mr-16 lg:ml-1 text-slate-500 font-semibold mb-40">
