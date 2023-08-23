@@ -76,6 +76,7 @@ const SingleProduct = () => {
                 {secondaryImages.map((image, index) => (
                   <div className="cursor-pointer" key={index}>
                     <img
+                      loading="lazy"
                       className="w-40"
                       src={image}
                       alt={`Secondary Image ${index + 1}`}
