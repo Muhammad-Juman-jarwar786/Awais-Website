@@ -42,17 +42,7 @@ const SingleProduct = () => {
   const handleSecondaryImage = (image: string) => {
     setMainImage(image);
   };
-  // const setData = () => {
-  //   const data = products.find((p: any) => p.id === pid);
-  //   setproductstoshow(data);
-  //   setMainImage(productstoshow.img);
-  //   setsecondaryImages([
-  //     productstoshow.img,
-  //     productstoshow.img1,
-  //     productstoshow.img2,
-  //     productstoshow.img3,
-  //   ]);
-  // };
+
   const setData = () => {
     const data: any = products.find((p: any) => p.id === pid);
     setproductstoshow(data);
