@@ -43,7 +43,7 @@ const CartTotalSection = () => {
                     Cart Subtotal
                   </div>
                   <div className="text-lg border-b-2 border-l-2 p-1 lg:text-xl lg:p-2">
-                    ${subTotal}
+                    Rs{subTotal}
                   </div>
                 </div>
                 <div className="grid grid-cols-2">
@@ -51,13 +51,13 @@ const CartTotalSection = () => {
                     Shipping
                   </div>
                   <div className="text-lg border-b-2 border-l-2 p-1 lg:text-xl lg:p-2">
-                    ${Shipping}
+                    Rs{Shipping}
                   </div>
                 </div>
                 <div className="grid grid-cols-2 text-black">
                   <div className="text-lg p-1 lg:text-xl lg:p-2">Total</div>
                   <div className="text-lg border-l-2 p-1 lg:text-xl lg:p-2">
-                    ${Total}
+                    Rs{Total}
                   </div>
                 </div>
               </div>

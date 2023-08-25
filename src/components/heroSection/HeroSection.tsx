@@ -26,6 +26,7 @@ const HeroSection = () => {
           <Link to="/shop">
             <button className="relative w-60 h-12 rounded-md bg-transparent hover:scale-110 transition-all duration-500">
               <img
+                loading="lazy"
                 className="absolute inset-0 w-full h-full object-cover opacity-60"
                 src={buttonbg}
                 alt=""
@@ -40,6 +41,7 @@ const HeroSection = () => {
 
       <div className="overflow-hidden w-full md:w-1/2">
         <img
+          loading="lazy"
           data-aos="fade-left"
           data-aos-easing="ease-in-back"
           data-aos-duration="1000"

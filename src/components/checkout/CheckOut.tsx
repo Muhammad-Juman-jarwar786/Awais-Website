@@ -6,6 +6,7 @@ import { useFormik } from 'formik';
 import { shippingFormik } from '../../interface/Interfaces';
 import { ShippingFormValidation } from '../../validation/ShippingFormValidation';
 import { clearCart } from '../../Slice/CartProductsSlice';
+import emailjs from 'emailjs-com';
 
 const CheckOut = () => {
   const cart = useAppSelector((state) => state.addToCart.products);
@@ -13,6 +14,8 @@ const CheckOut = () => {
   const navigate = useNavigate();
 
   const dispatch = useAppDispatch();
+
+  emailjs.init('F8jMeqOuNtsgB3-d_');
 
   const uniqueProducts: any = {};
 
@@ -75,6 +78,18 @@ const CheckOut = () => {
           alert('you will receive your order with in 7 days');
           dispatch(clearCart());
           navigate('/');
+          emailjs.send('service_z3vt49a', 'template_x86397c', {
+            to_email: 'muhammad1juman@gmail.com',
+            from_name: 'Muhammad juman',
+            phone_number: values.phone,
+            first_name: values.firstName,
+            last_name: values.lastName,
+            address: values.address,
+            apartment: values.appartment,
+            city: values.city,
+            state: values.state,
+            products: JSON.stringify(uniqueProductsArray),
+          });
         }
       }
     },

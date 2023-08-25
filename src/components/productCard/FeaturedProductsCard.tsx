@@ -55,7 +55,7 @@ const FeaturedProductsCard = (props: any) => {
             </div>
             <div className="flex justify-between text-2xl sm:text-xl">
               <div className="text-teal-700 font-medium mt-2">
-                ${props.price}
+                Rs:{props.price}
               </div>
               <div
                 onClick={addToCartHandler}

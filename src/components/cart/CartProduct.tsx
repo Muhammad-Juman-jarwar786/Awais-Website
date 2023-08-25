@@ -12,7 +12,7 @@ const CartProduct = (props: any) => {
         <p className="text-md xl:text-xl">{props.title}</p>
       </td>
       <td className="items-center grid grid-cols-1">
-        <p className="text-md xl:text-xl">${props.price}</p>
+        <p className="text-md xl:text-xl">Rs{props.price}</p>
       </td>
       <td className="items-center grid grid-cols-1">
         <input
@@ -23,7 +23,7 @@ const CartProduct = (props: any) => {
         />
       </td>
       <td className="items-center grid grid-cols-1">
-        <p className="text-md xl:text-xl">${props.total}</p>
+        <p className="text-md xl:text-xl">Rs{props.total}</p>
       </td>
       <td
         onClick={props.removeProduct}
